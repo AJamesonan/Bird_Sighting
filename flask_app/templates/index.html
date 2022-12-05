@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Bird Websightings</h1>  <a href="/sighting/new">+Report a Sighting</a> <a href="/logout">Logout</a>
+        <table>
+            <tr>
+                <td>Location</td>
+                <td>Date</td>
+                <td>Reported by</td>
+                <td>Actions</td>
+            </tr>
+            <tr>
+                {% for sighting in sightings %}
+                <td>{{sighting.location}}</td>
+                <td>{{sighting.date_of_sighting}}</td>
+                <td>{{sighting.reported_by.first_name}}</td>
+                <td><a href="/sighting/{{sighting.id}}">view sighting</a> 
+                    {% if session['first_name'] == sighting.reported_by.first_name %}
+                    | 
+                    <a href="/edit/sighting/{{sighting.id}}">edit</a> | 
+                    <a href="/sightings/delete/{{sighting.id}}">delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </body>
+    </html>
+</body>
+</html>

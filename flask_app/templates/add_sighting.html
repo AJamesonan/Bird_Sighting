@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bird Websightings</h1>
+    <h3>Report this Sighting</h3>
+    <a href="/sightings">Dashboard</a> | 
+    <a href="/logout">Logout</a>
+    <form action='/add/sighting' method="POST">
+        <div>
+            <label for="location">Location :</label>
+            <input type="text" name="location"><br>
+            <label for="sighting">Date of Sighting:</label>
+            <input type="date" name="date_of_sighting"><br>
+            <label for="number_of_birds"># of Birds:</label> 
+            <input type="number" name ="number_of_birds"><br>
+        </select><br>
+        
+        <label for="description">Description:</label><br>
+        <input type="textbox" name="description" style="height: 40px;"><br>
+        <input type="submit" value="report">
+    </div>
+</form>
+{% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+{% if messages %}                            <!-- check if there are any messages -->
+    {% for message in messages %}            <!-- loop through the messages -->
+        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+</body>
+</html>

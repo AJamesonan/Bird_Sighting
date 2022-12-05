@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view</title>
+</head>
+<body>
+    <body>
+        <h1>Bird Websightings</h1> 
+        
+        <a href="/sightings"> back to sightings</a> | <a href="/logout"> logout</a>
+    
+        <div>
+            <h5>sighting at {{sighting.location}} on {{sighting.date_of_sighting}}</h5>
+    
+            
+            <h3>What Happended</h3><br>
+            {{sighting.description}}<br>
+    
+    
+            # of Birds {{sighting.number_of_birds}} <br>
+            
+            Reported by {{sighting.reported_by}}
+
+        </div>
+        <a href="/sightings/delete/{{sighting.id}}"> delete</a>
+    
+</body>
+</html>
